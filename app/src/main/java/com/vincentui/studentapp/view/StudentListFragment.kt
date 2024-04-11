@@ -1,5 +1,4 @@
 package com.vincentui.studentapp.view
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,17 +7,15 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.vincentui.studentapp.R
 import com.vincentui.studentapp.databinding.FragmentStudentListBinding
 import com.vincentui.studentapp.viewmodel.ListViewModel
+
 
 
 class StudentListFragment : Fragment() {
     private lateinit var binding:FragmentStudentListBinding
     private lateinit var viewModel: ListViewModel
     private val studentListAdapter  = StudentListAdapter(arrayListOf())
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,8 +44,8 @@ class StudentListFragment : Fragment() {
             binding.refreshLayout.isRefreshing = false
 
         }
-
     }
+
     fun observeViewModel() {
         viewModel.studentsLD.observe(viewLifecycleOwner, Observer {
             studentListAdapter.updateStudentList(it)
@@ -70,6 +67,5 @@ class StudentListFragment : Fragment() {
                 binding.progressLoad.visibility = View.GONE
             }
         })
-
     }
 }

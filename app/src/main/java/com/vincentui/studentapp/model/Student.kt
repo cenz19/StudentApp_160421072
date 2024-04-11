@@ -11,5 +11,4 @@ data class Student(
     val phone:String?,
     @SerializedName("photo_url")
     val photoUrl:String
-
 )
